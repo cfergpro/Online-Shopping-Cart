@@ -7,7 +7,6 @@ public class Main { //This class handles all of the main functions of an online 
         Scanner input = new Scanner(System.in);
 
         double balance = 250.00; //The customer's starting balance.
-        int cartnum = 0; //The number of items in the customer's cart.
         double cost; //The total cost of the items in the cart. This gets updated after each loop.
 
         //Creates items to be sold.
@@ -32,7 +31,7 @@ public class Main { //This class handles all of the main functions of an online 
                 cost += cart.get(i).getPrice(); //Calculates total cost of items in your cart.
             }
 
-            System.out.printf("Balance: $%.2f | Items in Cart: %d | Total Cost: $%.2f%n", balance, cart, cost); //Prints balance, items in cart, and total cost.
+            System.out.printf("Balance: $%.2f | Items in Cart: %d | Total Cost: $%.2f%n", balance, cart.size(), cost); //Prints balance, items in cart, and total cost.
 
             System.out.print("Continue Shopping?"); 
             if (input.nextLine().equals("no") || input.nextLine().equals("No") || input.nextLine().equals("n") || input.nextLine().equals("N")) { //Determines if the shopping loop continues.
@@ -42,11 +41,11 @@ public class Main { //This class handles all of the main functions of an online 
                     break;
                 }
                 else {
-                    if (cost < balance) { //Tried checking out without enough money.
+                    if (cost > balance) { //Tried checking out without enough money.
                         System.out.println("Your total cost is more than your current balance.");
                     }
                     else{ //Final checkout
-                        System.out.println("Items in Cart: " + cartnum + " | Total Cost: $" + cost);
+                        System.out.println("Items in Cart: " + cart.size() + " | Total Cost: $" + cost);
                         System.out.print("Leftover Balance: $" + (balance - cost));
                         break;
                     }
