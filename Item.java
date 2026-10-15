@@ -13,4 +13,7 @@ public class Item { //This class creates items for the online store.
     public double getPrice() { //Returns the price of the target item.
         return price;
     }
+    public String getDescription() {
+        return name + " -$" + String.format("%.f", price);
+    }
 }
