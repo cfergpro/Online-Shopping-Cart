@@ -23,7 +23,12 @@ public class Main { //This class handles all of the main functions of an online 
 
         ArrayList<Item> store = new ArrayList<>(List.of(tshirt, chair, sunglasses, hat, shoes, backpack, watch, socks, waterbottle, wallet)); //Adds the items we created to the list of items to be purchased.
         ArrayList<Item> cart = new ArrayList<>(); //Creates a shopping cart that stores items you want to purchase.
+        
+        Review review1 = new Review(tshirt, 5, "Good quality!");
+        Review review2 = new Review(shoes, 2, "Not comfortable.");
 
+        review1.displayReview();
+        review2.displayReview();
 
         while (true) { //Main shopping loop.
             cost = 0.00;
